@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="计算机网络," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="第一章 引言由一台服务器服务于整个组织内所有计算需求的老式模型已经被新的模型说取代——大量相互独立但彼此链接的计算机共同完成计算任务。这些系统称为计算机网络(computer networks)。">
+<meta name="keywords" content="计算机网络">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机网络（一）">
+<meta property="og:url" content="http://yoursite.com/2018/06/06/2018-06-06-computer-networks-1/index.html">
+<meta property="og:site_name" content="ChenHan‘s Blog">
+<meta property="og:description" content="第一章 引言由一台服务器服务于整个组织内所有计算需求的老式模型已经被新的模型说取代——大量相互独立但彼此链接的计算机共同完成计算任务。这些系统称为计算机网络(computer networks)。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/assets/images/computer-networks/1.jpg">
+<meta property="og:image" content="http://yoursite.com/assets/images/computer-networks/2.jpg">
+<meta property="og:image" content="http://yoursite.com/assets/images/computer-networks/3.jpg">
+<meta property="og:image" content="http://yoursite.com/assets/images/computer-networks/4.jpg">
+<meta property="og:updated_time" content="2018-06-09T11:13:58.824Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="计算机网络（一）">
+<meta name="twitter:description" content="第一章 引言由一台服务器服务于整个组织内所有计算需求的老式模型已经被新的模型说取代——大量相互独立但彼此链接的计算机共同完成计算任务。这些系统称为计算机网络(computer networks)。">
+<meta name="twitter:image" content="http://yoursite.com/assets/images/computer-networks/1.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/06/06/2018-06-06-computer-networks-1/"/>
+
+
+
+
+
+  <title>计算机网络（一） | ChenHan‘s Blog</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-120440362-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?4f99b26a655e7d4203d164705e139ac4";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ChenHan‘s Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/06/2018-06-06-computer-networks-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chen Han">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ChenHan‘s Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">计算机网络（一）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-06T20:33:11+08:00">
+                2018-06-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/计算机网络/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机网络</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/06/06/2018-06-06-computer-networks-1/" class="leancloud_visitors" data-flag-title="计算机网络（一）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="第一章-引言"><a href="#第一章-引言" class="headerlink" title="第一章 引言"></a>第一章 引言</h1><p>由一台服务器服务于整个组织内所有计算需求的老式模型已经被新的模型说取代——大量相互独立但彼此链接的计算机共同完成计算任务。这些系统称为<strong>计算机网络</strong>(computer networks)。 </p>
+<a id="more"></a>   
+<p>我们将使用术语“计算机网络”来表示一组通过单一技术相互连接的自主计算机集合。  </p>
+<p>如果两台计算机能够交换信息，这称这两台计算机是<strong>相互连接的</strong>(interconnected)。  </p>
+<hr>
+<p>计算机网络和<strong>分布式系统</strong>(distributed system)这两个概念容易使人混淆。两者的关键差别在于，由一组独立计算机组成的分布式系统呈现给用户的是一个关联系统。  </p>
+<p>一般来说，在用户看来，分布式系统只是一个模型或范式。通常在操作系统之上有一层软件负责实现这个模型，这个软件就称为<strong>中间价</strong>(middleware)。最著名的分布式系统例子就是<strong>万维网</strong>(World Wide Web)。万维网运行在Internet之上，这个模型的所有一切都表现得像是一个文档(Web页面)一样。  </p>
+<p>在计算机网络中，这种一致性、模型以及软件都不存在。用户看到的是实际的机器，系统并没有努力使这些机器看起来一样，或者企图使他们的行为保持一致。  </p>
+<p>实际上，分布式系统是建立在网络之上的软件系统。这个软件给予分布式系统以高度的凝聚力和透明性。因此，网络和分布式系统的区别在于软件(特别是操作系统)，而不是硬件。</p>
+<hr>
+<h2 id="使用计算机网络"><a href="#使用计算机网络" class="headerlink" title="使用计算机网络"></a>使用计算机网络</h2><h3 id="商业应用"><a href="#商业应用" class="headerlink" title="商业应用"></a>商业应用</h3><p>资源共享的目的是让网络中的任何人都可以访问所有的程序、设备，尤其是数据，并且这些资源和用户所处的物理位置无关。  </p>
+<p>一种称为<strong>虚拟专用网络</strong>(VPN，Virtual Private Networks)的网络技术可以将不同的单个网络联结成一个扩展的网络。概括地说，VPN的目标是企图终结“地理位置的束缚”。</p>
+<hr>
+<p>按照最简单的形式，可以把一个公司的信息系统想象成由一个或多个数据库，以及许多需要远程访问这些数据库的员工们组成的。  </p>
+<p>在这个模型中，数据存储在性能强大的计算机上，这些高性能计算机称为<strong>服务器</strong>(server)。通常，这些服务器集中在一起，由一个系统管理员负责维护。而员工们的桌子上有一些简单的机器，称为<strong>客户机</strong>(client)。通过这些客户机，员工们可以访问远程的数据。客户机和服务器通过网络连接，如下图所示。</p>
+<p><img src="/assets/images/computer-networks/1.jpg" alt="">  </p>
+<p>这样的整个安排方式称为<strong>客户机-服务器模型</strong>(client-server model)。这是一种应用很广泛的模型，是许多网络应用的基础。最受欢迎的实现是web应用。  </p>
+<p>如果我们更仔细地考虑客户机-服务器模型，可以看到该模型涉及两个进程，一个位于客户机器上，另一个位于服务器机器上。双方的通信形式是这样的：客户机进程通过网络将一个消息发送给服务器进程，然后客户机进程等待应答消息；当服务器进程获得了该请求消息后，它就执行客户所请求的工作，或者查询客户所请求的数据，然后发回一个应答消息。下图显示了这些消息及其过程。  </p>
+<p><img src="/assets/images/computer-networks/2.jpg" alt="">  </p>
+<hr>
+<p>构建计算机网络的第二个目标与人有关，而与信息或者甚至计算机都无关。计算机网络可以为员工们提供功能强大的<strong>通信媒介</strong>(communication medium)。  </p>
+<p>公司员工之间可以通过计算机网络打电话，而不必再通过电话公司。这项技术称为<strong>IP电话</strong>(IP telephony)，如果采用了Internet技术则称为<strong>IP语音</strong>(VoIP, Voice over IP)。通话两端的麦克风和扬声器可能隶属于一个具有VoIP功能的手机或者员工的计算机。  </p>
+<p><strong>桌面共享</strong>(Desktop sharing)使得远程工作人员与一个图形化计算机屏幕交互工作。  </p>
+<hr>
+<p>对许多公司来说构建计算机网络的第三个目标是做电子商务，特别是与客户和供应商打交道。这种新的模式成为<strong>电子商务</strong>(e-commerce，electronic commerce)，近年来得到了迅速增长。</p>
+<hr>
+<h3 id="家庭应用"><a href="#家庭应用" class="headerlink" title="家庭应用"></a>家庭应用</h3><p>Internet接入为家庭用户提供了到远程计算机的<strong>连通性</strong>(connectivity)。  </p>
+<p>访问远程信息可以有多种形式。这些信息中的大部分是使用客户机-服务端模式访问获得的，但还存在着一种完全不同的获取信息模式，这种模式非常流行，它采用了一种称为<strong>对等</strong>(peer-to-peer)通信的技术(Parameswaran等，2001)。在这种通信形式下，组成一个松散群体中的个人可以与群体中的其他人通信，如下图所示。原则上，每个人都可以与一个或多个其他人通信，这里的客户端和服务器没有固定的分工。  </p>
+<p><img src="/assets/images/computer-networks/3.jpg" alt="">  </p>
+<p>许多对等系统没有任何中央内容数据库，比如BitTorrent(Cohen，2003)。相反每个用户在本地维护他自己的数据库，并与为附近群体中的其他成员提供服务。一个新用户到任何一个现有成员那里看看他有什么信息，并且可以获得其他成员的名字，以便检查是否有更多的内容和更多的其他用户名字。这个查询过程可无限重复下去，最终在用户本地建立一个大型的本地数据库。  </p>
+<p>事实上，最流行的Internet应用之一，电子邮件，本质上也是对等模式的。  </p>
+<hr>
+<p>第二类网络应用是人-人通信。  </p>
+<p><strong>即时信息</strong>(instant messaging)这种应用演变自1970年以来一直在使用的UNIX系统talk程序，它允许两个人相互实时地输入实时信息。除了两个人实时交谈外，还有多人参与的消息服务。  </p>
+<p>Internet还可以被用于与音频(例如，Internet广播电台)、视频(例如YouTube)有关的应用。  </p>
+<p>人-人之间的通信和访问信息都属于社会网络应用。在这里，信息的流动被人们彼此声明的关系所驱动。  </p>
+<hr>
+<p>第三类网络应用是广义的电子商务。电子商务中得到广泛应用的另一个领域是访问金融机构。许多人通过电子方式来字符账单、管理银行的账户和处理他们的投资业务。  </p>
+<p>另一个几乎人人都没有预料到的领域是电子跳蚤市场(e-flea？)。二手 货物的在线拍卖已经变成了一个巨大的行业。  </p>
+<p>以下为一些形式的电子商务。  </p>
+<table>
+<thead>
+<tr>
+<th>标记</th>
+<th>全称</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>B2C</td>
+<td>企业对消费</td>
+<td>在线购买</td>
+</tr>
+<tr>
+<td>B2B</td>
+<td>企业对企业</td>
+<td>汽车制造商向供应商订购轮胎</td>
+</tr>
+<tr>
+<td>G2C</td>
+<td>政府对企业</td>
+<td>政府分发电子税收表单</td>
+</tr>
+<tr>
+<td>C2C</td>
+<td>消费者对消费者</td>
+<td>在线拍卖二手物品</td>
+</tr>
+<tr>
+<td>P2P</td>
+<td>对等</td>
+<td>音乐共享</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p>网络的第四类应用是娱乐。</p>
+<hr>
+<p>最后一类应用是无处不在的<strong>普适计算</strong>(ubiquitous computer)。  </p>
+<p><strong>射频识别</strong>(RFID，Radio Frequency IDentification)。RFID标签是一种无源芯片(即无电池)，大小与邮票类似，可以把它贴在家里和外出时携带的书籍、护照、宠物、信用卡、以及其他物品上。RFID读写器可以定位数米范围内的物品，并与之通信，具体的读取范围取决于RFID的类型。  </p>
+<hr>
+<h3 id="移动用户"><a href="#移动用户" class="headerlink" title="移动用户"></a>移动用户</h3><p>由电话公司运营的蜂窝网络是大家非常熟悉的一种无线网络，通过基站提供的手机覆盖面把我们连在一起。基于802.11标准的<strong>无线热点</strong>(hotspot)是另一种移动计算机的无线网络。  </p>
+<hr>
+<p>下表给出了<strong>固定无线</strong>(fixed wirelses)和<strong>移动无线</strong>(mobile wireless)之间的区别。  </p>
+<table>
+<thead>
+<tr>
+<th>无线</th>
+<th>移动</th>
+<th>典型应用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>不是</td>
+<td>不是</td>
+<td>办公室的台式计算机</td>
+</tr>
+<tr>
+<td>不是</td>
+<td>是</td>
+<td>酒店房间里使用的体验笔记本电脑</td>
+</tr>
+<tr>
+<td>是</td>
+<td>不是</td>
+<td>未曾布线的建筑物内的网络</td>
+</tr>
+<tr>
+<td>是</td>
+<td>是</td>
+<td>手持计算机清点商店库存</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><strong>短消息</strong>(text messaging)或<strong>短信</strong>(texting)盛极一时。手机用户输入一条短消息，然后由蜂窝网络将该消息传递给另一个移动用户。  </p>
+<hr>
+<p><strong>智能手机</strong>(smart phone)，结合了移动电话和移动电脑两方面的功能。它们连接的(3G和4G)蜂窝网络可提供使用Internet的快速数据服务。  </p>
+<p>通常移动电话装备有<strong>全球定位系统</strong>(GPS，Global Positioning System)接收器。  </p>
+<hr>
+<p>另一个开始使用移动电话的领域是<strong>移动商务</strong>(m-commerce，mobile-commerce)。移动电话发出的短消息可作为在购买自动售货机里的食物、电影票等其他小件物品时授权支付，由此省却了现金和信用卡支付。然后这个费用将出现在手机的花费账单上。当配备了<strong>近场通信</strong>(NFC，Near Field Communication)技术后，手机就可以充当RFID智能卡和附近的RFID读写器互动进而完成消费支付。  </p>
+<hr>
+<h2 id="网络硬件"><a href="#网络硬件" class="headerlink" title="网络硬件"></a>网络硬件</h2><p>关于计算机网络，没有一种被普遍接受的分类方法，但是有两个维度非常重要：传输技术和网络尺度。下面我们依次讨论这些。  </p>
+<p><img src="/assets/images/computer-networks/4.jpg" alt="">  </p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/计算机网络/" rel="tag"># 计算机网络</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/06/2018-04-10-DirectX-11-Tutorials-2/" rel="next" title="DirectX 11 教程二">
+                <i class="fa fa-chevron-left"></i> DirectX 11 教程二
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNzA5NS8xMzYzMQ=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.png"
+                alt="Chen Han" />
+            
+              <p class="site-author-name" itemprop="name">Chen Han</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+          
+          <!--my custom code begin-->
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.0/velocity.min.js"></script>
+          <script type="text/javascript">
+            $("#sidebar").hover(function(){
+              $("#mydivshow").velocity('stop').velocity({opacity: 1});
+            },function(){
+              $("#mydivshow").velocity('stop').velocity({opacity: 0});
+            });
+          </script>
+      
+          <div id="mydivshow" class="mydivshow">
+          <!--my custom code end-->
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/chenhan0" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:ch080239@outlook.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+
+    <!--my custom code begin-->
+	  </div>
+	  <!--my custom code end-->
+	  </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第一章-引言"><span class="nav-number">1.</span> <span class="nav-text">第一章 引言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用计算机网络"><span class="nav-number">1.1.</span> <span class="nav-text">使用计算机网络</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#商业应用"><span class="nav-number">1.1.1.</span> <span class="nav-text">商业应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#家庭应用"><span class="nav-number">1.1.2.</span> <span class="nav-text">家庭应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#移动用户"><span class="nav-number">1.1.3.</span> <span class="nav-text">移动用户</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络硬件"><span class="nav-number">1.2.</span> <span class="nav-text">网络硬件</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chen Han</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("Nb89Os46zfAuajmlv5lviOyV-gzGzoHsz", "LUDKAIJIdT64iBTzuShaEL3z");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

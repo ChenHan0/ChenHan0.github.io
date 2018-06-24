@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="DirectX,Graphics," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="创建一个框架和窗口在开始使用DirectX 11进行编码之前，我建议构建一个简单的代码框架。这个框架将处理基本的窗口功能，并提供一种简单的方式来以有组织的和可读的方式扩展代码。由于这些教程的目的只是为了尝试DirectX 11的不同功能，我们将故意保持框架尽可能简洁。">
+<meta name="keywords" content="DirectX,Graphics">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DirectX 11 教程二">
+<meta property="og:url" content="http://yoursite.com/2018/06/06/2018-04-10-DirectX-11-Tutorials-2/index.html">
+<meta property="og:site_name" content="ChenHan‘s Blog">
+<meta property="og:description" content="创建一个框架和窗口在开始使用DirectX 11进行编码之前，我建议构建一个简单的代码框架。这个框架将处理基本的窗口功能，并提供一种简单的方式来以有组织的和可读的方式扩展代码。由于这些教程的目的只是为了尝试DirectX 11的不同功能，我们将故意保持框架尽可能简洁。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/assets/images/DirectX11/2-1.gif">
+<meta property="og:updated_time" content="2018-06-06T09:34:22.465Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="DirectX 11 教程二">
+<meta name="twitter:description" content="创建一个框架和窗口在开始使用DirectX 11进行编码之前，我建议构建一个简单的代码框架。这个框架将处理基本的窗口功能，并提供一种简单的方式来以有组织的和可读的方式扩展代码。由于这些教程的目的只是为了尝试DirectX 11的不同功能，我们将故意保持框架尽可能简洁。">
+<meta name="twitter:image" content="http://yoursite.com/assets/images/DirectX11/2-1.gif">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/06/06/2018-04-10-DirectX-11-Tutorials-2/"/>
+
+
+
+
+
+  <title>DirectX 11 教程二 | ChenHan‘s Blog</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-120440362-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?4f99b26a655e7d4203d164705e139ac4";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ChenHan‘s Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/06/2018-04-10-DirectX-11-Tutorials-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chen Han">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ChenHan‘s Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">DirectX 11 教程二</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-06T18:02:41+08:00">
+                2018-06-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/DirectX/" itemprop="url" rel="index">
+                    <span itemprop="name">DirectX</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/06/06/2018-04-10-DirectX-11-Tutorials-2/" class="leancloud_visitors" data-flag-title="DirectX 11 教程二">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="创建一个框架和窗口"><a href="#创建一个框架和窗口" class="headerlink" title="创建一个框架和窗口"></a>创建一个框架和窗口</h1><p>在开始使用DirectX 11进行编码之前，我建议构建一个简单的代码框架。这个框架将处理基本的窗口功能，并提供一种简单的方式来以有组织的和可读的方式扩展代码。由于这些教程的目的只是为了尝试DirectX 11的不同功能，我们将故意保持框架尽可能简洁。  </p>
+<a id="more"></a>  
+<h2 id="框架"><a href="#框架" class="headerlink" title="框架"></a><u>框架</u></h2><p>框架工作将从四个方面开始。 它将有一个WinMain函数来处理应用程序的入口点。它还有一个system类，封装了将从WinMain函数中调用的整个应用程序。在system类中，我们将有一个用于处理用户输入的input类和一个用于处理DirectX图形代码的graphics类。以下是框架示意图：  </p>
+<p><img src="/assets/images/DirectX11/2-1.gif" alt="">  </p>
+<p>现在我们看看如何构建框架，让我们先看看main.cpp文件中的WinMain函数。  </p>
+<h2 id="WinMain"><a href="#WinMain" class="headerlink" title="WinMain"></a><u>WinMain</u></h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">////////////////////////////////////////////////////////////////////////////////</span></span><br><span class="line"><span class="comment">// Filename: main.cpp</span></span><br><span class="line"><span class="comment">////////////////////////////////////////////////////////////////////////////////</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"systemclass.h"</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> WINAPI <span class="title">WinMain</span><span class="params">(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR pScmdline, <span class="keyword">int</span> iCmdshow)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    SystemClass* System;</span><br><span class="line">    <span class="keyword">bool</span> result;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 创建system对象.</span></span><br><span class="line">    System = <span class="keyword">new</span> SystemClass;</span><br><span class="line">    <span class="keyword">if</span>(!System)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 初始化和启动system对象.</span></span><br><span class="line">    result = System-&gt;Initialize();</span><br><span class="line">    <span class="keyword">if</span>(result)</span><br><span class="line">    &#123;</span><br><span class="line">        System-&gt;Run();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 关闭和释放system对象.</span></span><br><span class="line">    System-&gt;Shutdown();</span><br><span class="line">    <span class="keyword">delete</span> System;</span><br><span class="line">    System = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>正如你所看到的，我们使WinMain功能保持非常简洁。我们创建system类并初始化它。如果初始化没有问题，那么我们调用system类Run函数。Run函数将运行它自己的循环并执行所有的应用程序代码，直到完成。Run函数完成后，我们关闭system对象并清理system对象。所以我们保持它非常简洁，并将整个应用程序封装在system类中。现在我们来看看system类的头文件。  </p>
+<h2 id="Systemclass-h"><a href="#Systemclass-h" class="headerlink" title="Systemclass.h"></a><u>Systemclass.h</u></h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">////////////////////////////////////////////////////////////////////////////////</span></span><br><span class="line"><span class="comment">// Filename: systemclass.h</span></span><br><span class="line"><span class="comment">////////////////////////////////////////////////////////////////////////////////</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> _SYSTEMCLASS_H_</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> _SYSTEMCLASS_H_</span></span><br></pre></td></tr></table></figure>
+<p>这里我们定义WIN32_LEAN_AND_MEAN。我们这样做是为了加速build过程，它通过排除一些较少使用的API来减小Win32头文件的大小。  </p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">///////////////////////////////</span></span><br><span class="line"><span class="comment">// PRE-PROCESSING DIRECTIVES //</span></span><br><span class="line"><span class="comment">///////////////////////////////</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> WIN32_LEAN_AND_MEAN</span></span><br></pre></td></tr></table></figure>
+<p>Windows.h被包含在内，因此我们可以调用这些函数来创建/销毁窗口并能够使用其他有用的win32函数。  </p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">///////////////////////</span></span><br><span class="line"><span class="comment">// MY CLASS INCLUDES //</span></span><br><span class="line"><span class="comment">///////////////////////</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"inputclass.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"graphicsclass.h"</span></span></span><br></pre></td></tr></table></figure>
+<p>这个类的定义非常简单。我们看到在此处定义的WinMain中调用的Initialize，Shutdown和Run函数。还有一些私有函数将在这些函数中被调用。我们还在该类中放置了一个MessageHandler函数来处理将在运行时发送给应用程序的Windows系统消息。最后我们有几个私有变量m_Input和m_Graphics，它们将指向处理图形和输入的两个对象。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">////////////////////////////////////////////////////////////////////////////////</span></span><br><span class="line"><span class="comment">// Class name: SystemClass</span></span><br><span class="line"><span class="comment">////////////////////////////////////////////////////////////////////////////////</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SystemClass</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    SystemClass();</span><br><span class="line">    SystemClass(<span class="keyword">const</span> SystemClass&amp;);</span><br><span class="line">    ~SystemClass();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">Initialize</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Shutdown</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Run</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function">LRESULT CALLBACK <span class="title">MessageHandler</span><span class="params">(HWND, UINT, WPARAM, LPARAM)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">Frame</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">InitializeWindows</span><span class="params">(<span class="keyword">int</span>&amp;, <span class="keyword">int</span>&amp;)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">ShutdownWindows</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    LPCWSTR m_applicationName;</span><br><span class="line">    HINSTANCE m_hinstance;</span><br><span class="line">    HWND m_hwnd;</span><br><span class="line"></span><br><span class="line">    InputClass* m_Input;</span><br><span class="line">    GraphicsClass* m_Graphics;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/////////////////////////</span></span><br><span class="line"><span class="comment">// FUNCTION PROTOTYPES //</span></span><br><span class="line"><span class="comment">/////////////////////////</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> LRESULT CALLBACK <span class="title">WndProc</span><span class="params">(HWND, UINT, WPARAM, LPARAM)</span></span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/////////////</span></span><br><span class="line"><span class="comment">// GLOBALS //</span></span><br><span class="line"><span class="comment">/////////////</span></span><br><span class="line"><span class="keyword">static</span> SystemClass* ApplicationHandle = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+<p>WndProc函数和ApplicationHandle指针也包含在这个类文件中，所以我们可以将windows系统消息传递到system类中的MessageHandler函数中。  </p>
+<p>现在让我们看看system类的源文件：  </p>
+<h2 id="Systemclass-cpp"><a href="#Systemclass-cpp" class="headerlink" title="Systemclass.cpp"></a><u>Systemclass.cpp</u></h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">////////////////////////////////////////////////////////////////////////////////</span></span><br><span class="line"><span class="comment">// Filename: systemclass.cpp</span></span><br><span class="line"><span class="comment">////////////////////////////////////////////////////////////////////////////////</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"systemclass.h"</span></span></span><br></pre></td></tr></table></figure>
+<p>在类构造函数中，我将对象指针初始化为null。这很重要，因为如果这些对象的初始化失败，那么Shutdown函数会继续尝试清理这些对象。如果对象不为空，那么它会认为它们是有效的创建对象，并且需要清理它们。在你的应用程序中将所有指针和变量初始化为空也是一种好习惯。如果你不这样做，某些release版本将build失败。  </p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SystemClass::SystemClass()</span><br><span class="line">&#123;</span><br><span class="line">    m_Input = <span class="number">0</span>;</span><br><span class="line">    m_Graphics = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在这里我创建一个空的拷贝构造函数和空的类析构函数。在这个类中，我不需要它们，但如果没有定义，一些编译器会为你生成它们，在这种情况下，我宁愿它们是空的。</p>
+<p>你也会注意到我不会在类的析构函数中清理任何对象。我会在下面的Shutdown函数中清除所有对象。 原因是我不相信它会被调用。某些Windows函数(如ExitThread())不会调用析构函数而导致内存泄漏。  </p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">SystemClass::SystemClass(<span class="keyword">const</span> SystemClass&amp; other)</span><br><span class="line">&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">SystemClass::~SystemClass()</span><br><span class="line">&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>下面的Initialize函数完成应用程序的所有设置。它首先调用InitializeWindows，它将创建我们的应用程序使用的窗口。它还创建和初始化应用程序用于处理用户输入和将图形渲染到屏幕的输入和图形对象。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">bool</span> SystemClass::Initialize()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">int</span> screenWidth, screenHeight;</span><br><span class="line">    <span class="keyword">bool</span> result;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 在将变量发送到函数之前，把初始化屏幕的宽度和高度为零.</span></span><br><span class="line">    screenWidth = <span class="number">0</span>;</span><br><span class="line">    screenHeight = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 初始化窗口API.</span></span><br><span class="line">    InitializeWindows(screenWidth, screenHeight);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 创建 input对象. 该对象将用于处理读取用户的键盘输入.</span></span><br><span class="line">    m_Input = <span class="keyword">new</span> InputClass;</span><br><span class="line">    <span class="keyword">if</span>(!m_Input)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 初始化input对象.</span></span><br><span class="line">    m_Input-&gt;Initialize();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 创建graphics对象. 该对象将为此应用程序渲染所有图形.</span></span><br><span class="line">    m_Graphics = <span class="keyword">new</span> GraphicsClass;</span><br><span class="line">    <span class="keyword">if</span>(!m_Graphics)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 初始化graphics对象.</span></span><br><span class="line">    result = m_Graphics-&gt;Initialize(screenWidth, screenHeight, m_hwnd);</span><br><span class="line">    <span class="keyword">if</span>(!result)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Shutdown函数可以执行清理功能。 它关闭并释放与图形和输入对象相关的所有内容。它也会关闭窗口并清理与之关联的手柄。  </p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> SystemClass::Shutdown()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 释放graphics对象.</span></span><br><span class="line">    <span class="keyword">if</span>(m_Graphics)</span><br><span class="line">    &#123;</span><br><span class="line">        m_Graphics-&gt;Shutdown();</span><br><span class="line">        <span class="keyword">delete</span> m_Graphics;</span><br><span class="line">        m_Graphics = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 释放input对象.</span></span><br><span class="line">    <span class="keyword">if</span>(m_Input)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">delete</span> m_Input;</span><br><span class="line">        m_Input = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 关闭窗口.</span></span><br><span class="line">    ShutdownWindows();</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Run函数是我们的应用程序将循环并执行所有应用程序处理直到我们决定退出的地方。应用程序处理在每个循环中都被调用的Frame函数中完成。这是一个重要的概念，因为现在我们的应用程序的其余部分必须写在它的里面。伪代码如下所示：<br>while 没有完成<br>     检查Windows系统消息<br>     处理系统消息<br>     处理应用程序循环<br>     检查用户是否在帧处理期间退出</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> SystemClass::Run()</span><br><span class="line">&#123;</span><br><span class="line">    MSG msg;</span><br><span class="line">    <span class="keyword">bool</span> done, result;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 初始化message结构体.</span></span><br><span class="line">    ZeroMemory(&amp;msg, <span class="keyword">sizeof</span>(MSG));</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 循环，直到窗口或用户发出退出消息.</span></span><br><span class="line">    done = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">while</span>(!done)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 处理windows消息.</span></span><br><span class="line">        <span class="keyword">if</span>(PeekMessage(&amp;msg, <span class="literal">NULL</span>, <span class="number">0</span>, <span class="number">0</span>, PM_REMOVE))</span><br><span class="line">        &#123;</span><br><span class="line">            TranslateMessage(&amp;msg);</span><br><span class="line">            DispatchMessage(&amp;msg);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 如果窗口示意结束应用程序，则退出.</span></span><br><span class="line">        <span class="keyword">if</span>(msg.message == WM_QUIT)</span><br><span class="line">        &#123;</span><br><span class="line">            done = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// 否则，执行帧处理.</span></span><br><span class="line">            result = Frame();</span><br><span class="line">            <span class="keyword">if</span>(!result)</span><br><span class="line">            &#123;</span><br><span class="line">                done = <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>下面的Frame函数是我们应用程序的执行所有处理的地方。到目前为止，它非常简洁，我们检查输入对象以查看用户是否按下了escape键并想要退出。如果他们不想退出，那么我们调用图形对象来完成它的帧处理，这将处理该帧的图形。随着应用程序的增长，我们会在这里放置更多的代码。  </p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">bool</span> SystemClass::Frame()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">bool</span> result;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 检查用户是否按下了escape键并想要退出应用程序.</span></span><br><span class="line">    <span class="keyword">if</span>(m_Input-&gt;IsKeyDown(VK_ESCAPE))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 为graphics对象执行帧处理.</span></span><br><span class="line">    result = m_Graphics-&gt;Frame();</span><br><span class="line">    <span class="keyword">if</span>(!result)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>MessageHandler函数是我们接收Windows系统消息的地方。通过这种方式，我们可以监听我们感兴趣的某些信息。目前，我们只会读取是否按下了某个键或是否松开了某个键，并将该信息传递给input对象。所有其他信息我们将传回给Windows默认消息处理程序。  </p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">LRESULT CALLBACK SystemClass::MessageHandler(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">switch</span>(umsg)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 检查键盘上是否有按键被按下.</span></span><br><span class="line">        <span class="keyword">case</span> WM_KEYDOWN:</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// 如果按下某个键，则将其发送到input对象，以便它可以记录该状态.</span></span><br><span class="line">            m_Input-&gt;KeyDown((<span class="keyword">unsigned</span> <span class="keyword">int</span>)wparam);</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 检查键盘上是否有键被松开.</span></span><br><span class="line">        <span class="keyword">case</span> WM_KEYUP:</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// 如果一个键被松开了，然后将其发送到输入对象，以便它可以取消该键的状态.</span></span><br><span class="line">            m_Input-&gt;KeyUp((<span class="keyword">unsigned</span> <span class="keyword">int</span>)wparam);</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 任何其他消息发送给默认消息处理程序，因为我们的应用程序不会使用它们.</span></span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> DefWindowProc(hwnd, umsg, wparam, lparam);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>InitializeWindows函数是我们放置代码来构建我们将用于渲染的窗口的位置。它将screenWidth和screenHeight返回给调用函数，以便我们可以在整个应用程序中使用它们。我们使用一些默认设置创建窗口来初始化一个没有边框的普通黑色窗口。该函数将创建一个小窗口或全屏窗口，这将取决于名为FULL_SCREEN的全局变量。如果这设置为true，那么我们使屏幕覆盖整个用户的桌面窗口。如果它设置为false，我们只需在屏幕中间制作一个800x600的窗口。我将FULL_SCREEN全局变量放在graphicsclass.h文件的顶部，以防万一您想修改它。稍后你将明白为什么我将全局置于该文件中而不是此文件的头文件中。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> SystemClass::InitializeWindows(<span class="keyword">int</span>&amp; screenWidth, <span class="keyword">int</span>&amp; screenHeight)</span><br><span class="line">&#123;</span><br><span class="line">    WNDCLASSEX wc;</span><br><span class="line">    DEVMODE dmScreenSettings;</span><br><span class="line">    <span class="keyword">int</span> posX, posY;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获取一个指向这个对象的外部指针.</span></span><br><span class="line">    ApplicationHandle = <span class="keyword">this</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获取此应用程序的实例.</span></span><br><span class="line">    m_hinstance = GetModuleHandle(<span class="literal">NULL</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 给应用程序一个名字.</span></span><br><span class="line">    m_applicationName = <span class="string">L"Engine"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 使用默认设置设置Windows类.</span></span><br><span class="line">    wc.style = CS_HREDRAW | CS_VREDRAW | CS_OWNDC;</span><br><span class="line">    wc.lpfnWndProc = WndProc;</span><br><span class="line">    wc.cbClsExtra = <span class="number">0</span>;</span><br><span class="line">    wc.cbWndExtra = <span class="number">0</span>;</span><br><span class="line">    wc.hInstance = m_hinstance;</span><br><span class="line">    wc.hIcon = LoadIcon(<span class="literal">NULL</span>, IDI_WINLOGO);</span><br><span class="line">    wc.hIconSm = wc.hIcon;</span><br><span class="line">    wc.hCursor = LoadCursor(<span class="literal">NULL</span>, IDC_ARROW);</span><br><span class="line">    wc.hbrBackground = (HBRUSH)GetStockObject(BLACK_BRUSH);</span><br><span class="line">    wc.lpszMenuName = <span class="literal">NULL</span>;</span><br><span class="line">    wc.lpszClassName = m_applicationName;</span><br><span class="line">    wc.cbSize = <span class="keyword">sizeof</span>(WNDCLASSEX);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 注册Windows类.</span></span><br><span class="line">    RegisterClassEx(&amp;wc);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 确定客户端桌面屏幕的分辨率.</span></span><br><span class="line">    screenWidth  = GetSystemMetrics(SM_CXSCREEN);</span><br><span class="line">    screenHeight = GetSystemMetrics(SM_CYSCREEN);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 根据是全屏模式还是窗口模式来设置屏幕设置.</span></span><br><span class="line">    <span class="keyword">if</span>(FULL_SCREEN)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 如果是全屏将屏幕设置为用户桌面的最大尺寸和32位.</span></span><br><span class="line">        <span class="built_in">memset</span>(&amp;dmScreenSettings, <span class="number">0</span>, <span class="keyword">sizeof</span>(dmScreenSettings));</span><br><span class="line">        dmScreenSettings.dmSize       = <span class="keyword">sizeof</span>(dmScreenSettings);</span><br><span class="line">        dmScreenSettings.dmPelsWidth  = (<span class="keyword">unsigned</span> <span class="keyword">long</span>)screenWidth;</span><br><span class="line">        dmScreenSettings.dmPelsHeight = (<span class="keyword">unsigned</span> <span class="keyword">long</span>)screenHeight;</span><br><span class="line">        dmScreenSettings.dmBitsPerPel = <span class="number">32</span>;         </span><br><span class="line">        dmScreenSettings.dmFields     = DM_BITSPERPEL | DM_PELSWIDTH | DM_PELSHEIGHT;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 将显示设置更改为全屏.</span></span><br><span class="line">        ChangeDisplaySettings(&amp;dmScreenSettings, CDS_FULLSCREEN);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 将窗口的位置设置为左上角.</span></span><br><span class="line">        posX = posY = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 如果是窗口化，则将其设置为800x600分辨率.</span></span><br><span class="line">        screenWidth  = <span class="number">800</span>;</span><br><span class="line">        screenHeight = <span class="number">600</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 将窗口放在屏幕中间.</span></span><br><span class="line">        posX = (GetSystemMetrics(SM_CXSCREEN) - screenWidth)  / <span class="number">2</span>;</span><br><span class="line">        posY = (GetSystemMetrics(SM_CYSCREEN) - screenHeight) / <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 用屏幕设置创建窗口并获取它的句柄.</span></span><br><span class="line">    m_hwnd = CreateWindowEx(WS_EX_APPWINDOW, m_applicationName, m_applicationName, </span><br><span class="line">                WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_POPUP,</span><br><span class="line">                posX, posY, screenWidth, screenHeight, <span class="literal">NULL</span>, <span class="literal">NULL</span>, m_hinstance, <span class="literal">NULL</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 将窗口放在屏幕上并将其设置为主要焦点.</span></span><br><span class="line">    ShowWindow(m_hwnd, SW_SHOW);</span><br><span class="line">    SetForegroundWindow(m_hwnd);</span><br><span class="line">    SetFocus(m_hwnd);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 隐藏鼠标光标.</span></span><br><span class="line">    ShowCursor(<span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>ShutdownWindows就是这样做的。它将屏幕设置恢复到正常状态并释放窗口和与其关联的句柄。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> SystemClass::ShutdownWindows()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 显示鼠标光标.</span></span><br><span class="line">    ShowCursor(<span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 如果退出全屏模式，请将显示设置改回.</span></span><br><span class="line">    <span class="keyword">if</span>(FULL_SCREEN)</span><br><span class="line">    &#123;</span><br><span class="line">        ChangeDisplaySettings(<span class="literal">NULL</span>, <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 删除窗口.</span></span><br><span class="line">    DestroyWindow(m_hwnd);</span><br><span class="line">    m_hwnd = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 删除应用程序实例.</span></span><br><span class="line">    UnregisterClass(m_applicationName, m_hinstance);</span><br><span class="line">    m_hinstance = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 释放指向该类的指针.</span></span><br><span class="line">    ApplicationHandle = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>WndProc函数是Windows发送消息的地方。当我们在上面的InitializeWindows函数中用wc.lpfnWndProc = WndProc初始化窗口类时，您会注意到我们告诉Windows它的名字。我将它包含在这个类文件中，因为我们通过将所有消息发送到SystemClass中定义的MessageHandler函数，将它直接绑定到system类中。这使我们可以将消息传递功能直接绑定到我们的类中并保持代码整洁。  </p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">LRESULT CALLBACK <span class="title">WndProc</span><span class="params">(HWND hwnd, UINT umessage, WPARAM wparam, LPARAM lparam)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">switch</span>(umessage)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 检查窗口是否将被摧毁.</span></span><br><span class="line">        <span class="keyword">case</span> WM_DESTROY:</span><br><span class="line">        &#123;</span><br><span class="line">            PostQuitMessage(<span class="number">0</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 检查窗口是否将被关闭.</span></span><br><span class="line">        <span class="keyword">case</span> WM_CLOSE:</span><br><span class="line">        &#123;</span><br><span class="line">            PostQuitMessage(<span class="number">0</span>);     </span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 所有其他消息传递给system类中的消息处理程序.</span></span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> ApplicationHandle-&gt;MessageHandler(hwnd, umessage, wparam, lparam);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Inputclass-h"><a href="#Inputclass-h" class="headerlink" title="Inputclass.h"></a><u>Inputclass.h</u></h2><p>为了保持教程简单，我暂时使用了Windows输入，直到我在DirectInput上做了一个教程。输入类处理来自键盘的用户输入。这个类从SystemClass :: MessageHandler函数获得输入。输入对象将每个键的状态存储在键盘数组中。当被查询时，它会告诉调用函数是否按下了某个键。 这是头文件：  </p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">////////////////////////////////////////////////////////////////////////////////</span></span><br><span class="line"><span class="comment">// Filename: inputclass.h</span></span><br><span class="line"><span class="comment">////////////////////////////////////////////////////////////////////////////////</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> _INPUTCLASS_H_</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> _INPUTCLASS_H_</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">////////////////////////////////////////////////////////////////////////////////</span></span><br><span class="line"><span class="comment">// Class name: InputClass</span></span><br><span class="line"><span class="comment">////////////////////////////////////////////////////////////////////////////////</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">InputClass</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    InputClass();</span><br><span class="line">    InputClass(<span class="keyword">const</span> InputClass&amp;);</span><br><span class="line">    ~InputClass();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Initialize</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">KeyDown</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">int</span>)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">KeyUp</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">int</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">IsKeyDown</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">int</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">bool</span> m_keys[<span class="number">256</span>];</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="Inputclass-cpp"><a href="#Inputclass-cpp" class="headerlink" title="Inputclass.cpp"></a><u>Inputclass.cpp</u></h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">////////////////////////////////////////////////////////////////////////////////</span></span><br><span class="line"><span class="comment">// Filename: inputclass.cpp</span></span><br><span class="line"><span class="comment">////////////////////////////////////////////////////////////////////////////////</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"inputclass.h"</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">InputClass::InputClass()</span><br><span class="line">&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">InputClass::InputClass(<span class="keyword">const</span> InputClass&amp; other)</span><br><span class="line">&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">InputClass::~InputClass()</span><br><span class="line">&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> InputClass::Initialize()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    <span class="comment">// Initialize all the keys to being released and not pressed.</span></span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;<span class="number">256</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        m_keys[i] = <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> InputClass::KeyDown(<span class="keyword">unsigned</span> <span class="keyword">int</span> input)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// If a key is pressed then save that state in the key array.</span></span><br><span class="line">    m_keys[input] = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> InputClass::KeyUp(<span class="keyword">unsigned</span> <span class="keyword">int</span> input)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// If a key is released then clear that state in the key array.</span></span><br><span class="line">    m_keys[input] = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">bool</span> InputClass::IsKeyDown(<span class="keyword">unsigned</span> <span class="keyword">int</span> key)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// Return what state the key is in (pressed/not pressed).</span></span><br><span class="line">    <span class="keyword">return</span> m_keys[key];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Graphicsclass-h"><a href="#Graphicsclass-h" class="headerlink" title="Graphicsclass.h"></a><u>Graphicsclass.h</u></h2><p>graphics类是由system类创建的另一个对象。此应用程序中的所有图形功能都将封装在此类中。我还将在这个文件中使用头文件来显示我们可能想要改变的所有图形相关的全局设置，例如全屏或窗口模式。目前这个类将是空的，但将来的教程将包含所有的图形对象。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">////////////////////////////////////////////////////////////////////////////////</span></span><br><span class="line"><span class="comment">// Filename: graphicsclass.h</span></span><br><span class="line"><span class="comment">////////////////////////////////////////////////////////////////////////////////</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> _GRAPHICSCLASS_H_</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> _GRAPHICSCLASS_H_</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//////////////</span></span><br><span class="line"><span class="comment">// INCLUDES //</span></span><br><span class="line"><span class="comment">//////////////</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;windows.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/////////////</span></span><br><span class="line"><span class="comment">// GLOBALS //</span></span><br><span class="line"><span class="comment">/////////////</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">bool</span> FULL_SCREEN = <span class="literal">false</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">bool</span> VSYNC_ENABLED = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">float</span> SCREEN_DEPTH = <span class="number">1000.0f</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">float</span> SCREEN_NEAR = <span class="number">0.1f</span>;</span><br></pre></td></tr></table></figure>
+<p>我们需要这四个全局变量来开始其他工作。  </p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">////////////////////////////////////////////////////////////////////////////////</span></span><br><span class="line"><span class="comment">// Class name: GraphicsClass</span></span><br><span class="line"><span class="comment">////////////////////////////////////////////////////////////////////////////////</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GraphicsClass</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    GraphicsClass();</span><br><span class="line">    GraphicsClass(<span class="keyword">const</span> GraphicsClass&amp;);</span><br><span class="line">    ~GraphicsClass();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">Initialize</span><span class="params">(<span class="keyword">int</span>, <span class="keyword">int</span>, HWND)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Shutdown</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">Frame</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">Render</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="Graphicsclass-cpp"><a href="#Graphicsclass-cpp" class="headerlink" title="Graphicsclass.cpp"></a><u>Graphicsclass.cpp</u></h2><p>由于我们正在为本教程构建框架，因此我暂时将这个类保留为空。  </p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">////////////////////////////////////////////////////////////////////////////////</span></span><br><span class="line"><span class="comment">// Filename: graphicsclass.cpp</span></span><br><span class="line"><span class="comment">////////////////////////////////////////////////////////////////////////////////</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"graphicsclass.h"</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">GraphicsClass::GraphicsClass()</span><br><span class="line">&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">GraphicsClass::GraphicsClass(<span class="keyword">const</span> GraphicsClass&amp; other)</span><br><span class="line">&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">GraphicsClass::~GraphicsClass()</span><br><span class="line">&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">bool</span> GraphicsClass::Initialize(<span class="keyword">int</span> screenWidth, <span class="keyword">int</span> screenHeight, HWND hwnd)</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> GraphicsClass::Shutdown()</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">bool</span> GraphicsClass::Frame()</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">bool</span> GraphicsClass::Render()</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><u>总结</u></h2><p>所以现在我们有一个框架和一个可以在屏幕上弹出的窗口。这个框架工作现在将成为所有未来教程的基础，因此理解这个框架是相当重要的。在进入下一个教程之前，请尝试进行练习以确保代码编译并可以正常工作。如果你不理解这个框架，你可以继续学习其他教程，并且在框架完成后将更容易理解它。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/DirectX/" rel="tag"># DirectX</a>
+          
+            <a href="/tags/Graphics/" rel="tag"># Graphics</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/06/2018-04-09-DirectX-11-Tutorials-1/" rel="next" title="DirectX 11 教程一">
+                <i class="fa fa-chevron-left"></i> DirectX 11 教程一
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/06/2018-06-06-computer-networks-1/" rel="prev" title="计算机网络（一）">
+                计算机网络（一） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNzA5NS8xMzYzMQ=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.png"
+                alt="Chen Han" />
+            
+              <p class="site-author-name" itemprop="name">Chen Han</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+          
+          <!--my custom code begin-->
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.0/velocity.min.js"></script>
+          <script type="text/javascript">
+            $("#sidebar").hover(function(){
+              $("#mydivshow").velocity('stop').velocity({opacity: 1});
+            },function(){
+              $("#mydivshow").velocity('stop').velocity({opacity: 0});
+            });
+          </script>
+      
+          <div id="mydivshow" class="mydivshow">
+          <!--my custom code end-->
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/chenhan0" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:ch080239@outlook.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+
+    <!--my custom code begin-->
+	  </div>
+	  <!--my custom code end-->
+	  </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#创建一个框架和窗口"><span class="nav-number">1.</span> <span class="nav-text">创建一个框架和窗口</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#框架"><span class="nav-number">1.1.</span> <span class="nav-text">框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WinMain"><span class="nav-number">1.2.</span> <span class="nav-text">WinMain</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Systemclass-h"><span class="nav-number">1.3.</span> <span class="nav-text">Systemclass.h</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Systemclass-cpp"><span class="nav-number">1.4.</span> <span class="nav-text">Systemclass.cpp</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Inputclass-h"><span class="nav-number">1.5.</span> <span class="nav-text">Inputclass.h</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Inputclass-cpp"><span class="nav-number">1.6.</span> <span class="nav-text">Inputclass.cpp</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Graphicsclass-h"><span class="nav-number">1.7.</span> <span class="nav-text">Graphicsclass.h</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Graphicsclass-cpp"><span class="nav-number">1.8.</span> <span class="nav-text">Graphicsclass.cpp</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">1.9.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chen Han</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("Nb89Os46zfAuajmlv5lviOyV-gzGzoHsz", "LUDKAIJIdT64iBTzuShaEL3z");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
